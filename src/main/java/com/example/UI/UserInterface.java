@@ -42,7 +42,8 @@ public class UserInterface {
         try {
             noteService.create(title, content);
         } catch (IllegalNoteException e) {
-            e.printStackTrace();
+            System.out.println("Note was not created.");
+            System.out.println("Title can be maximum of 44 characters, and content has to be maximum of 1000000 characters.");
         }
     }
 

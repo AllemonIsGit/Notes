@@ -48,7 +48,7 @@ public class NoteServiceImpl implements NoteService {
         return noteRepository.getNotes();
     }
 
-    //TODO
+
     @Override
     public Note getById(int id) {
         return noteRepository.getById(id)
