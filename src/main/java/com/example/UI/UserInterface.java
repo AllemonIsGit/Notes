@@ -41,9 +41,10 @@ public class UserInterface {
         String content = scanner.nextLine();
         try {
             noteService.create(title, content);
+            System.out.println("Note created.");
         } catch (IllegalNoteException e) {
             System.out.println("Note was not created.");
-            System.out.println("Title can be maximum of 44 characters, and content has to be maximum of 1000000 characters.");
+            System.out.println(formatErrors(e.getErrorMessages()));
         }
     }
 
@@ -60,11 +61,10 @@ public class UserInterface {
             noteService.update(id, new Note(titleToSave, contentToSave));
             System.out.println("Note updated.");
         } catch (IllegalNoteException e) {
-            System.out.println(e.getMessage());
+            System.out.println("Note was not update.");
+            System.out.println(formatErrors(e.getErrorMessages()));
         }
-
     }
-
 
     public void delete(int id) {
         noteService.destroy(id);
@@ -141,8 +141,11 @@ public class UserInterface {
         }
     }
 
+    private String formatErrors(List<String> errors) {
+        return String.join("\n* ", errors);
+    }
+
     private boolean isValidMapObject(int mapKey) {
         return numberToIdMap.containsKey(mapKey);
-
     }
 }
