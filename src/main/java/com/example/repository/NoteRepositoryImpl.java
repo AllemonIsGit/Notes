@@ -36,9 +36,9 @@ public class NoteRepositoryImpl implements NoteRepository {
             this.connection = DriverManager.getConnection(DB_ADDRESS + dbName, DB_USERNAME, DB_PASSWORD);
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Cannot connect to database.");
+            System.err.println("Cannot connect to database.");
         } catch (FileNotFoundException e) {
-            System.out.println("There was a problem getting database information.");
+            System.err.println("There was a problem getting database information.");
         }
     }
     @Override
@@ -53,7 +53,7 @@ public class NoteRepositoryImpl implements NoteRepository {
                 noteList.add(note);
             }
         } catch (SQLException e) {
-            System.out.println("There was an error getting notes.");
+            System.err.println("There was an error getting notes.");
         }
         return noteList;
     }

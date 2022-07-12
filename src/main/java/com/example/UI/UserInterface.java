@@ -91,7 +91,7 @@ public class UserInterface {
                 case "print" -> {
                     int mapKey = Integer.parseInt(args);
                     if (!isValidMapObject(mapKey)) {
-                        System.out.println("Invalid id.");
+                        System.err.println("Invalid id.");
                         break;
                     }
                     printNote(numberToIdMap.get(mapKey));
@@ -107,7 +107,7 @@ public class UserInterface {
                 case "delete" -> {
                     int mapKey = Integer.parseInt(args);
                     if (!isValidMapObject(mapKey)) {
-                        System.out.println("Invalid id");
+                        System.err.println("Invalid id");
                         break;
                     }
                     System.out.println("Are you sure you want to delete this note? (type yes to continue)");
@@ -124,7 +124,7 @@ public class UserInterface {
                 case "edit" -> {
                     int mapKey = Integer.parseInt(args);
                     if (!isValidMapObject(mapKey)) {
-                        System.out.println("Invalid id");
+                        System.err.println("Invalid id");
                         break;
                     }
                     update(numberToIdMap.get(mapKey));

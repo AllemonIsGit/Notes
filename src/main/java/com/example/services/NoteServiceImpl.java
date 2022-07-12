@@ -38,7 +38,7 @@ public class NoteServiceImpl implements NoteService {
     @Override
     public void destroy(int id) {
         if (noteRepository.getById(id).isEmpty()) {
-            System.out.println("There's no note with id " + id);
+            System.err.println("There's no note with id " + id);
         } else
         noteRepository.delete(id);
     }
